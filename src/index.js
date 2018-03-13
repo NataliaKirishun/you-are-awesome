@@ -28,9 +28,19 @@ const asyncIncrementor = () => {
         setTimeout(()=>{incAsync++; resolve(incAsync)},100);
     });
 };
-let incIncrementer=0;
+let incIncrementer = 0;
 const createIncrementer = () => {
-
+    return {
+        next : function(){
+            return {
+                value: ++incIncrementer
+            }
+        },
+        [Symbol.iterator]: function* () {
+            incIncrementer++;
+            yield incIncrementer;
+        }
+    }
 };
 
 // return same argument not earlier than in one second, and not later, than in two
@@ -42,6 +52,7 @@ const returnBackInSecond = (a) => {
 const getDeepPropertiesCount = () => {
 };
 const createSerializedObject = () => {
+   return null;
 };
 const toBuffer = () => {
 };
