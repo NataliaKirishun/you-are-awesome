@@ -50,6 +50,17 @@ const returnBackInSecond = (a) => {
    })
     };
 const getDeepPropertiesCount = () => {
+   let count=0;
+    countOfProperties(object);
+function countOfProperties(object) {
+    for (let key in object) {
+        if (typeof( object[key] === 'object')) {
+            count++;
+            countOfProperties(object[key]);
+        }
+    }
+}
+return count;
 };
 const createSerializedObject = () => {
    return null;
