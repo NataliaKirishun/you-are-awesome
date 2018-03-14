@@ -49,7 +49,7 @@ const returnBackInSecond = (a) => {
        setTimeout(()=>{resolve(a)},1200);
    })
     };
-const getDeepPropertiesCount = () => {
+const getDeepPropertiesCount = (object) => {
    let count=0;
     countOfProperties(object);
 function countOfProperties(object) {
